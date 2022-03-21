@@ -19,30 +19,36 @@ const QuestionOneScreen = () => {
     const calculateIBM = () => {
         const validatedWeight = weight || 0;
         const validatedHeight = height || 0;
-        const result =
-            (validatedWeight / validatedHeight / validatedHeight) * 10000;
 
-        if (isNaN(result)) {
-            setBmiStatus('');
-        } else {
-            if (result < 18.5) {
-                setBmiStatus('Underweight');
-            } else if (result <= 18.5 && result >= 24.9) {
-                setBmiStatus('Healthy Weight');
-            } else if (result <= 25 && result >= 29.9) {
-                setBmiStatus('Overweight');
-            } else if (result > 29.9) {
-                setBmiStatus('Obese');
+        if (validatedHeight > 0 && validatedWeight > 0) {
+            const result =
+                (validatedWeight / validatedHeight / validatedHeight) * 10000;
+
+            if (isNaN(result)) {
+                setBmiStatus('');
+            } else {
+                if (result < 18.5) {
+                    setBmiStatus('Underweight');
+                } else if (result <= 18.5 && result >= 24.9) {
+                    setBmiStatus('Healthy Weight');
+                } else if (result <= 25 && result >= 29.9) {
+                    setBmiStatus('Overweight');
+                } else if (result > 29.9) {
+                    setBmiStatus('Obese');
+                }
             }
-        }
 
-        setBmi(result.toFixed(2));
+            setBmi(result.toFixed(2));
+        } else {
+            setBmiStatus('');
+            setBmi(0);
+        }
     };
 
     return (
         <View style={styles.viewContainer}>
             <View style={styles.viewWrapper}>
-                <Text style={styles.textTitle}>LOGIN HERE</Text>
+                <Text style={styles.textTitle}>IBM</Text>
                 <Text style={styles.textContent}>
                     Calculating BMI Using the Metric System formula:
                 </Text>
@@ -83,12 +89,12 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     textTitle: {
-        fontSize: responsiveFontSize(2.2),
+        fontSize: responsiveFontSize(2.4),
         fontWeight: 'bold',
         color: '#43B2EC'
     },
     textContent: {
-        fontSize: responsiveFontSize(1.6),
+        fontSize: responsiveFontSize(1.8),
         width: responsiveWidth(80),
         textAlign: 'center'
     },
