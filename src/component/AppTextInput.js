@@ -5,19 +5,13 @@ import {
     responsiveWidth
 } from 'react-native-responsive-dimensions';
 
-const AppTextInput = ({
-    placeholder,
-    secureTextEntry,
-    value,
-    onChangeText
-}) => {
+const AppTextInput = ({ placeholder, value, onChangeText }) => {
     return (
         <TextInput
             placeholder={placeholder || ''}
             style={styles.textInput}
             keyboardType='numeric'
             maxLength={10}
-            secureTextEntry={secureTextEntry || false}
             onChangeText={onChangeText}
             value={value}
         />
