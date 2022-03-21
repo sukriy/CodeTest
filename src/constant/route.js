@@ -1,6 +1,6 @@
 const route = {
-    home: 'home',
-    questionOne: 'questionOne',
-    questionTwo: 'questionTwo'
+    home: 'HOME',
+    questionOne: 'Question One',
+    questionTwo: 'Question Two'
 };
 export default route;

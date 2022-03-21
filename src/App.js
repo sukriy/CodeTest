@@ -11,11 +11,7 @@ const Stack = createNativeStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator
-                screenOptions={{
-                    headerShown: false
-                }}
-            >
+            <Stack.Navigator>
                 <Stack.Screen name={route.home} component={HomeScreen} />
                 <Stack.Screen
                     name={route.questionOne}
